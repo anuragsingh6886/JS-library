@@ -22,10 +22,10 @@ npm test
 const { validateEmail, validatePhoneNumber, validatePassword, validateURL} = require('form-validatio-lib');
 
 // Examples
-validateEmail('user@example.com');       // true
-validatePhoneNumber('+1234567890');      // true
-validatePassword('StrongP@ssw0rd');      // true
-validateURL('https://example.com');      // true
+console.log(validateEmail('user@example.com'));    // true
+console.log(validatePhoneNumber('+1234567890'));   // true
+console.log(validatePassword('StrongP@ssw0rd'));   // true
+console.log(validateURL('https://example.com'));   // true
 ```
 
 ## Available Validators
