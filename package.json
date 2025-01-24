@@ -1,5 +1,5 @@
 {
-  "name": "form-validation-lib",
+  "name": "form-validation-lib-js",
   "version": "1.0.3",
   "description": "A lightweight JavaScript library for common form field validations",
   "main": "src/index.js",
