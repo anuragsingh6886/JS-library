@@ -1,16 +1,23 @@
 {
-  "name": "form-validatio-lib",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "form-validation-lib",
+  "version": "1.0.3",
+  "description": "A lightweight JavaScript library for common form field validations",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": "form, validation, javascript, jest",
+  "keywords": [
+    "form validation",
+    "javascript",
+    "jest"
+  ],
   "author": "Anurag Singh",
-  "license": "ISC",
-  "git repository": "https://github.com/anuragsingh6886/form-validatio-lib",
+  "license": "MIT License",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/anuragsingh6886/form-validatio-lib"
+  },
   "type": "commonjs",
-  "description": "",
   "devDependencies": {
     "jest": "^29.7.0"
   }
