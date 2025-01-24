@@ -37,3 +37,7 @@ console.log(validateURL('https://example.com'));   // true
  - Credit Card: Validates 16-digit card numbers using Luhn algorithm
  - Username: Validates alphanumeric usernames (3-16 characters)
  - IP Address: Validates IPv4 addresses
+
+## Author
+- Anurag Singh 
+
