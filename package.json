@@ -5,9 +5,10 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
+  "keywords": [form validatio, javascript, jest],
   "author": "Anurag Singh",
   "license": "ISC",
+  "git repository": "https://github.com/anuragsingh6886/form-validatio-lib",
   "type": "commonjs",
   "description": "",
   "devDependencies": {
