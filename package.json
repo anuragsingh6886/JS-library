@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [form validatio, javascript, jest],
+  "keywords": [form validation javascript jest],
   "author": "Anurag Singh",
   "license": "ISC",
   "git repository": "https://github.com/anuragsingh6886/form-validatio-lib",
