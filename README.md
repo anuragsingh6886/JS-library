@@ -19,16 +19,7 @@ npm test
 ## Usage
 
 ```javascript
-const {
-    validateEmail,
-    validatePhoneNumber,
-    validateURL,
-    validatePassword,
-    validateDate,
-    validateCreditCard,
-    validateUsername,
-    validateIPAddress
-} = require('form-validatio-lib');
+const { validateEmail, validatePhoneNumber, validatePassword, validateURL} = require('form-validatio-lib');
 
 // Examples
 validateEmail('user@example.com');       // true
