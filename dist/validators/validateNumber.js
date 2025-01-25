@@ -7,12 +7,19 @@ exports.validateNumber = validateNumber;
  * @returns boolean - True if the number is valid
  */
 function validateNumber(value, options = {}) {
+    if (!value || value.trim() === '')
+        return false;
+    // Convert to number and validate
     const num = Number(value);
     if (isNaN(num))
         return false;
-    if (options.min !== undefined && num < options.min)
+    // Check minimum if specified
+    if (options.min !== undefined && num < options.min) {
         return false;
-    if (options.max !== undefined && num > options.max)
+    }
+    // Check maximum if specified
+    if (options.max !== undefined && num > options.max) {
         return false;
+    }
     return true;
 }

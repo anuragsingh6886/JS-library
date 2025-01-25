@@ -79,3 +79,5 @@ export class FormValidator {
         return errors;
     }
 }
+
+export const formValidator = new FormValidator();

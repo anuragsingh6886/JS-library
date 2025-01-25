@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FormValidator = void 0;
+exports.formValidator = exports.FormValidator = void 0;
 const validators = __importStar(require("./validators"));
 class FormValidator {
     validators;
@@ -41,6 +41,42 @@ class FormValidator {
     constructor() {
         this.validators = { ...validators };
         this.asyncValidators = {};
+    }
+    // Add custom sync validator
+    addValidator(name, validator) {
+        this.validators[name] = validator;
+    }
+    // Add custom async validator
+    addAsyncValidator(name, validator) {
+        this.asyncValidators[name] = validator;
+    }
+    // Public validation method
+    async validateForm(formData, schema) {
+        const errors = [];
+        const asyncTasks = [];
+        for (const [field, rules] of Object.entries(schema)) {
+            const value = formData[field];
+            // Sync validation
+            for (const rule of rules.filter(r => !r.async)) {
+                const validator = this.validators[rule.type];
+                if (validator && !validator(value, rule.options)) {
+                    errors.push({
+                        field,
+                        message: rule.message || `Invalid ${field}`
+                    });
+                }
+            }
+            // Async validation
+            const asyncRules = rules.filter(r => r.async);
+            if (asyncRules.length) {
+                asyncTasks.push(this.validateAsync(field, value, asyncRules));
+            }
+        }
+        const asyncErrors = await Promise.all(asyncTasks);
+        return {
+            isValid: errors.length === 0 && asyncErrors.flat().length === 0,
+            errors: [...errors, ...asyncErrors.flat()]
+        };
     }
     async validateAsync(field, value, rules) {
         const errors = [];
@@ -57,3 +93,4 @@ class FormValidator {
     }
 }
 exports.FormValidator = FormValidator;
+exports.formValidator = new FormValidator();

@@ -8,3 +8,4 @@ export * from './usernameValidator';
 export * from './ipAddressValidator';
 export * from './validateNumber';
 export * from './validateFile';
+export * from './validateNumber';
