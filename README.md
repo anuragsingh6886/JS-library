@@ -19,25 +19,52 @@ npm test
 ## Usage
 
 ```javascript
-const { validateEmail, validatePhoneNumber, validatePassword, validateURL} = require('form-validatio-lib');
+import { useState } from 'react';
+import { validateEmail } from 'form-validation-lib-js';
 
-// Examples
-console.log(validateEmail('user@example.com'));    // true
-console.log(validatePhoneNumber('+1234567890'));   // true
-console.log(validatePassword('StrongP@ssw0rd'));   // true
-console.log(validateURL('https://example.com'));   // true
+const ValidForm = () => {
+
+  const [formData, setFormData] = useState({
+    email: '',
+    phone: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateEmail(formData.email)) {
+      return;
+    }
+
+    // Do something with the form data
+
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+        />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default ValidForm;
 ```
 
 ## Available Validators
- - Email: Validates email format
- - Phone Number: Validates international phone numbers
- - URL: Validates HTTP/HTTPS/FTP URLs
- - Password: Ensures strong password (uppercase, lowercase, number, special char)
- - Date: Validates YYYY-MM-DD format
- - Credit Card: Validates 16-digit card numbers using Luhn algorithm
- - Username: Validates alphanumeric usernames (3-16 characters)
- - IP Address: Validates IPv4 addresses
+ - Email [validateEmail]: Validates email format
+ - Phone Number [validatePhoneNumber]: Validates international phone numbers
+ - URL [validateURL]: Validates HTTP/HTTPS/FTP URLs
+ - Password [validatePassword]: Ensures strong password (uppercase, lowercase, number, special char)
+ - Date [validateDate]: Validates YYYY-MM-DD format
+ - Credit Card [validateCreditCardNumber]: Validates 16-digit card numbers using Luhn algorithm
+ - Username [validateUsername]: Validates alphanumeric usernames (3-16 characters)
+ - IP Address [validateIPAddress]: Validates IPv4 addresses
 
 ## Author
-- Anurag Singh 
+- Anurag Singh ([@anuragsingh6886](https://www.linkedin.com/in/anuragsingh6886/))
 

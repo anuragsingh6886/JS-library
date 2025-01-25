@@ -1,24 +1,36 @@
 {
   "name": "form-validation-lib-js",
-  "version": "1.0.3",
-  "description": "A lightweight JavaScript library for common form field validations",
+  "version": "2.0.0",
+  "description": "A comprehensive JavaScript form validation library",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "keywords": [
-    "form validation",
+    "form-validation",
     "javascript",
-    "jest"
+    "validation",
+    "typescript",
+    "forms"
   ],
   "author": "Anurag Singh",
-  "license": "MIT License",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/anuragsingh6886/form-validatio-lib"
   },
   "type": "commonjs",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@types/jest": "^29.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jest": "^27.6.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.21.0"
   }
 }

@@ -1,4 +1,14 @@
-function validateCreditCardNumber(creditCardNumber) {
+/**
+ * Validates a credit card number using the Luhn Algorithm
+ * @param creditCardNumber - The credit card number to validate
+ * @returns boolean - True if the credit card number is valid
+ */
+export function validateCreditCardNumber(creditCardNumber: string): boolean {
+    // Input validation
+    if (!creditCardNumber || typeof creditCardNumber !== 'string') {
+        return false;
+    }
+
     // Basic Luhn Algorithm implementation
     const re = /^\d{16}$/;
     if (!re.test(creditCardNumber)) return false;
@@ -14,5 +24,3 @@ function validateCreditCardNumber(creditCardNumber) {
     }
     return (sum % 10) === 0;
 }
-
-module.exports = validateCreditCardNumber;
