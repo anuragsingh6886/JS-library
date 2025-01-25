@@ -1,70 +1,144 @@
 # Form Validation Library
 
-A lightweight JavaScript library for common form field validations.
+A comprehensive TypeScript/JavaScript form validation library.
 
-## Installation
+[![npm version](https://badge.fury.io/js/form-validation-lib-js.svg)](https://badge.fury.io/js/form-validation-lib-js)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+
+## Features
+- 🚀 Zero dependencies
+- 💪 TypeScript support
+- ⚡ Tree-shakeable
+- 🔄 Async validation
+- 🎯 Custom validators
+- 📦 <4KB gzipped
+
+## 🚀 Quick Start
 
 ```bash
 npm install form-validatio-lib
 
 ```
 
-## Testing
-
-```bash
-npm test
-
-```
-
-## Usage
+## Basic Usage
 
 ```javascript
-import { useState } from 'react';
-import { validateEmail } from 'form-validation-lib-js';
+import { validateEmail, validatePassword, validatePhone } from 'form-validation-lib-js';
 
-const ValidForm = () => {
+// Email validation
+const isValidEmail = validateEmail('user@example.com'); // true
 
+// Password validation
+const isValidPassword = validatePassword('StrongPass1!'); // true
+
+// Phone number validation
+const isValidPhone = validatePhone('+1234567890'); // true
+```
+
+## React Integration:
+```javascript
+import React, { useState } from 'react';
+import { FormValidator } from 'form-validation-lib-js';
+
+const SignupForm = () => {
   const [formData, setFormData] = useState({
     email: '',
+    password: '',
     phone: ''
   });
+  const [errors, setErrors] = useState({});
 
-  const handleSubmit = (e) => {
+  const validator = new FormValidator();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateEmail(formData.email)) {
+    const validationSchema = {
+      email: [{ type: 'email', message: 'Invalid email' }],
+      password: [{ type: 'password', message: 'Weak password' }],
+      phone: [{ type: 'phone', message: 'Invalid phone number' }]
+    };
+
+    const result = await validator.validateForm(formData, validationSchema);
+    if (!result.isValid) {
+      setErrors(result.errors);
       return;
     }
 
-    // Do something with the form data
-
+    // Process form data
   };
 
   return (
     <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData({...formData, email: e.target.value})}
-        />
-      <button type="submit">Submit</button>
+      <input
+        type="email"
+        value={formData.email}
+        onChange={(e) => setFormData({...formData, email: e.target.value})}
+      />
+      {errors.email && <span>{errors.email}</span>}
+      {/* Other form fields */}
     </form>
   );
-}
-
-export default ValidForm;
+};
 ```
 
-## Available Validators
- - Email [validateEmail]: Validates email format
- - Phone Number [validatePhoneNumber]: Validates international phone numbers
- - URL [validateURL]: Validates HTTP/HTTPS/FTP URLs
- - Password [validatePassword]: Ensures strong password (uppercase, lowercase, number, special char)
- - Date [validateDate]: Validates YYYY-MM-DD format
- - Credit Card [validateCreditCardNumber]: Validates 16-digit card numbers using Luhn algorithm
- - Username [validateUsername]: Validates alphanumeric usernames (3-16 characters)
- - IP Address [validateIPAddress]: Validates IPv4 addresses
+## Available Validators:
+ - validateEmail(email: string): boolean
+ - validatePassword(password: string): boolean
+ - validatePhone(phone: string): boolean
+ - validateDate(date: string): boolean
+ - validateNumber(value: string, options?: {min?: number, max?: number}): boolean
+ - validateFile(file: File, options?: FileValidationOptions): boolean
+ - validateURL(url: string): boolean
+ - validateIPAddress(ip: string): boolean
+ - validateCreditCard(number: string): boolean
 
-## Author
+
+## 🔧 Advanced Features:
+
+### Custom Validators
+```javascript
+const validator = new FormValidator();
+
+// Add custom sync validator
+validator.addValidator('username', (value: string) => {
+  return /^[a-zA-Z0-9_]{3,16}$/.test(value);
+});
+
+// Add custom async validator
+validator.addAsyncValidator('uniqueEmail', async (email: string) => {
+  const response = await fetch(`/api/check-email?email=${email}`);
+  return response.json();
+});
+```
+
+### Validation Chain
+```javascript
+import { validate } from 'form-validation-lib-js';
+
+const result = validate('test@email.com')
+  .required()
+  .email()
+  .getErrors();
+```
+
+## TypeScript Support:
+
+```typescript
+import { ValidationSchema, ValidationResult } from 'form-validation-lib-js';
+
+const schema: ValidationSchema = {
+  email: [{ type: 'email' }],
+  password: [{ type: 'password' }]
+};
+```
+
+## Author:
 - Anurag Singh ([@anuragsingh6886](https://www.linkedin.com/in/anuragsingh6886/))
 
+## 🤝 Contributing
+Pull requests are welcome! See CONTRIBUTING.md for guidelines.
+
+## 📝 License:
+MIT License - see the ([LICENSE](https://github.com/anuragsingh6886/form-validatio-lib/blob/main/LICENSE)) file for details
