@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateNumber = validateNumber;
 /**
  * Validate a number within a range or not
  * @param value - The number to validate
  * @returns boolean - True if the number is valid
  */
-function validateNumber(value, options = {}) {
+export function validateNumber(value, options = {}) {
     if (!value || value.trim() === '')
         return false;
     // Convert to number and validate

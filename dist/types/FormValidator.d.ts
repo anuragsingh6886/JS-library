@@ -1,4 +1,4 @@
-import type { ValidatorFunction, AsyncValidatorFunction, ValidationResult, ValidationSchema } from './types';
+import type { ValidatorFunction, AsyncValidatorFunction, ValidationResult, ValidationSchema } from './types.js';
 export declare class FormValidator {
     private validators;
     private asyncValidators;
@@ -8,4 +8,3 @@ export declare class FormValidator {
     validateForm(formData: Record<string, any>, schema: ValidationSchema): Promise<ValidationResult>;
     private validateAsync;
 }
-export declare const formValidator: FormValidator;

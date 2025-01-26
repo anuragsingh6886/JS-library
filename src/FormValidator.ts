@@ -1,5 +1,5 @@
-import type { ValidationError, ValidationRule, ValidatorFunction, AsyncValidatorFunction, ValidationResult, ValidationSchema } from './types';
-import * as validators from './validators';
+import type { ValidationError, ValidationRule, ValidatorFunction, AsyncValidatorFunction, ValidationResult, ValidationSchema } from './types.js';
+import * as validators from './validators/index.js';
 
 export class FormValidator {
     private validators: Record<string, ValidatorFunction>;
@@ -10,17 +10,14 @@ export class FormValidator {
         this.asyncValidators = {};
     }
 
-    // Add custom sync validator
     addValidator(name: string, validator: ValidatorFunction): void {
         this.validators[name] = validator;
     }
 
-    // Add custom async validator
     addAsyncValidator(name: string, validator: AsyncValidatorFunction): void {
         this.asyncValidators[name] = validator;
     }
 
-    // Public validation method
     async validateForm(formData: Record<string, any>, schema: ValidationSchema): Promise<ValidationResult> {
         const errors: ValidationError[] = [];
         const asyncTasks: Promise<ValidationError[]>[] = [];
@@ -29,7 +26,7 @@ export class FormValidator {
             const value = formData[field];
 
             // Sync validation
-            for (const rule of rules.filter(r => !r.async)) {
+            for (const rule of (rules as ValidationRule[]).filter(r => !r.async)) {
                 const validator = this.validators[rule.type];
                 if (validator && !validator(value, rule.options)) {
                     errors.push({
@@ -40,7 +37,7 @@ export class FormValidator {
             }
 
             // Async validation
-            const asyncRules = rules.filter(r => r.async);
+            const asyncRules = (rules as ValidationRule[]).filter(r => r.async);
             if (asyncRules.length) {
                 asyncTasks.push(this.validateAsync(field, value, asyncRules));
             }
@@ -72,5 +69,3 @@ export class FormValidator {
         return errors;
     }
 }
-
-export const formValidator = new FormValidator();

@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateCreditCardNumber = validateCreditCardNumber;
 /**
  * Validates a credit card number using the Luhn Algorithm
  * @param creditCardNumber - The credit card number to validate
  * @returns boolean - True if the credit card number is valid
  */
-function validateCreditCardNumber(creditCardNumber) {
+export function validateCreditCardNumber(creditCardNumber) {
     // Input validation
     if (!creditCardNumber || typeof creditCardNumber !== 'string') {
         return false;

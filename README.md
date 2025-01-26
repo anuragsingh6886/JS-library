@@ -19,7 +19,6 @@ npm install form-validatio-lib
 - ⚡ Tree-shakeable
 - 🔄 Async validation
 - 🎯 Custom validators
-- 📦 <4KB gzipped
 
 ## Basic Usage
 
@@ -62,7 +61,10 @@ const SignupForm = () => {
 
     const result = await validator.validateForm(formData, validationSchema);
     if (!result.isValid) {
-      setErrors(result.errors);
+      setErrors(result.errors.reduce((acc, error) => ({
+        ...acc,
+        [error.field]: error.message
+      }), {}));
       return;
     }
 
@@ -71,16 +73,39 @@ const SignupForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="email"
-        value={formData.email}
-        onChange={(e) => setFormData({...formData, email: e.target.value})}
-      />
-      {errors.email && <span>{errors.email}</span>}
-      {/* Other form fields */}
+      <div>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+        />
+        {errors.email && <span>{errors.email}</span>}
+      </div>
+
+      <div>
+        <input
+          type="password"
+          value={formData.password}
+          onChange={(e) => setFormData({...formData, password: e.target.value})}
+        />
+        {errors.password && <span>{errors.password}</span>}
+      </div>
+
+      <div>
+        <input
+          type="text"
+          value={formData.phone}
+          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+        />
+        {errors.phone && <span>{errors.phone}</span>}
+      </div>
+
+      <button type="submit">Sign Up</button>
     </form>
   );
 };
+
+export default SignupForm;
 ```
 
 ## Custom Validators
@@ -96,7 +121,8 @@ validator.addValidator('username', (value: string) => {
 // Add custom async validator
 validator.addAsyncValidator('uniqueEmail', async (email: string) => {
   const response = await fetch(`/api/check-email?email=${email}`);
-  return response.json();
+  const { isUnique } = await response.json();
+  return isUnique;
 });
 ```
 

@@ -1,12 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateEmail = validateEmail;
 /**
  * Validates an email address
  * @param email - The email address to validate
  * @returns boolean - True if the email is valid
  */
-function validateEmail(email) {
+export function validateEmail(email) {
     // Input validation
     if (!email || typeof email !== 'string') {
         return false;

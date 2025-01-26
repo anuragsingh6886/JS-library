@@ -1,18 +1,17 @@
-import * as validators from './validators';
+import * as validators from './validators/index.js';
 export class FormValidator {
+    validators;
+    asyncValidators;
     constructor() {
         this.validators = { ...validators };
         this.asyncValidators = {};
     }
-    // Add custom sync validator
     addValidator(name, validator) {
         this.validators[name] = validator;
     }
-    // Add custom async validator
     addAsyncValidator(name, validator) {
         this.asyncValidators[name] = validator;
     }
-    // Public validation method
     async validateForm(formData, schema) {
         const errors = [];
         const asyncTasks = [];
@@ -54,4 +53,3 @@ export class FormValidator {
         return errors;
     }
 }
-export const formValidator = new FormValidator();
