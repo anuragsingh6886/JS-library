@@ -36,8 +36,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.formValidator = exports.FormValidator = void 0;
 const validators = __importStar(require("./validators"));
 class FormValidator {
-    validators;
-    asyncValidators;
     constructor() {
         this.validators = { ...validators };
         this.asyncValidators = {};

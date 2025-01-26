@@ -1,15 +1,14 @@
 {
-    "compilerOptions": {
-      "target": "es2022",
-      "module": "NodeNext",
-      "moduleResolution": "NodeNext",
-      "declaration": true,
-      "outDir": "./dist",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true
-    },
-    "include": ["src"],
-    "exclude": ["node_modules", "**/*.test.ts"]
-  }
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "outDir": "./dist/esm",
+    "declaration": true,
+    "declarationDir": "./dist/types",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
