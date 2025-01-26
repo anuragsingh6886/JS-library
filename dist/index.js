@@ -14,14 +14,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = exports.ValidationChain = exports.formValidator = exports.FormValidator = void 0;
+exports.formValidator = exports.FormValidator = void 0;
 __exportStar(require("./validators"), exports);
 __exportStar(require("./types"), exports);
 var FormValidator_1 = require("./FormValidator");
 Object.defineProperty(exports, "FormValidator", { enumerable: true, get: function () { return FormValidator_1.FormValidator; } });
 Object.defineProperty(exports, "formValidator", { enumerable: true, get: function () { return FormValidator_1.formValidator; } });
-var ValidationChain_1 = require("./ValidationChain");
-Object.defineProperty(exports, "ValidationChain", { enumerable: true, get: function () { return ValidationChain_1.ValidationChain; } });
-const ValidationChain_2 = require("./ValidationChain");
-const validate = (value) => new ValidationChain_2.ValidationChain(value);
-exports.validate = validate;

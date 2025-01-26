@@ -1,11 +1,4 @@
-import type {
-    ValidationError,
-    ValidationRule,
-    ValidatorFunction,
-    AsyncValidatorFunction,
-    ValidationResult,
-    ValidationSchema
-} from './types';
+import type { ValidationError, ValidationRule, ValidatorFunction, AsyncValidatorFunction, ValidationResult, ValidationSchema } from './types';
 import * as validators from './validators';
 
 export class FormValidator {
