@@ -14,9 +14,9 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formValidator = exports.FormValidator = void 0;
+exports.formValidator = void 0;
 __exportStar(require("./validators"), exports);
 __exportStar(require("./types"), exports);
-var FormValidator_1 = require("./FormValidator");
-Object.defineProperty(exports, "FormValidator", { enumerable: true, get: function () { return FormValidator_1.FormValidator; } });
-Object.defineProperty(exports, "formValidator", { enumerable: true, get: function () { return FormValidator_1.formValidator; } });
+const FormValidator_1 = require("./FormValidator");
+// Create default instance
+exports.formValidator = new FormValidator_1.FormValidator();

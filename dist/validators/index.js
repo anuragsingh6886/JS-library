@@ -25,3 +25,4 @@ __exportStar(require("./ipAddressValidator"), exports);
 __exportStar(require("./validateNumber"), exports);
 __exportStar(require("./validateFile"), exports);
 __exportStar(require("./validateNumber"), exports);
+__exportStar(require("./validateFile"), exports);

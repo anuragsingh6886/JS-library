@@ -1,3 +1,6 @@
 export * from './validators';
 export * from './types';
-export { FormValidator, formValidator } from './FormValidator';
+import { FormValidator } from './FormValidator';
+
+// Create default instance
+export const formValidator = new FormValidator();
