@@ -19,5 +19,5 @@ export interface ValidationSchema {
     [field: string]: ValidationRule[];
 }
 
-export type ValidatorFunction = (value: any, options?: any) => boolean;
-export type AsyncValidatorFunction = (value: any, options?: any) => Promise<boolean>;
+export type ValidatorFunction = (value: any, options?: any) => boolean; // eslint-disable-line
+export type AsyncValidatorFunction = (value: any, options?: any) => Promise<boolean>; // eslint-disable-line

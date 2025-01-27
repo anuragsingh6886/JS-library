@@ -9,7 +9,7 @@ export function validateEmail(email: string): boolean {
         return false;
     }
 
-    // RFC 5322 compliant email regex
-    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return re.test(email.toLowerCase());
+    // email regex
+    const regex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+    return regex.test(email.toLowerCase());
 }

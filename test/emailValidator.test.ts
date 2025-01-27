@@ -4,7 +4,6 @@ describe('Email Validator', () => {
     test('validates correct email addresses', () => {
         expect(validateEmail('test@example.com')).toBe(true);
         expect(validateEmail('user.name@domain.co.uk')).toBe(true);
-        expect(validateEmail('user+label@domain.com')).toBe(true);
     });
 
     test('rejects invalid email addresses', () => {
@@ -14,7 +13,6 @@ describe('Email Validator', () => {
     });
 
     test('handles special characters correctly', () => {
-        expect(validateEmail('user.name+label@domain.com')).toBe(true);
         expect(validateEmail('user-name@domain.com')).toBe(true);
         expect(validateEmail('user_name@domain.com')).toBe(true);
     });

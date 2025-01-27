@@ -17,7 +17,7 @@ export function validatePhone_US(phoneNumber: string): boolean {
 
 export function validatePhone_IN(phoneNumber: string): boolean {
     if (!phoneNumber || typeof phoneNumber !== 'string') return false;
-    const regex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+    const regex = /^(\+91[-\s]?)?[0]?(91)?[789]\d{9}$/;
     return regex.test(String(phoneNumber));
 }
 

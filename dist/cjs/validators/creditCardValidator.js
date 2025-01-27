@@ -3,7 +3,7 @@
  * @param creditCardNumber - The credit card number to validate
  * @returns boolean - True if the credit card number is valid
  */
-export function validateCreditCardNumber(creditCardNumber) {
+export function validateCreditCard(creditCardNumber) {
     // Input validation
     if (!creditCardNumber || typeof creditCardNumber !== 'string') {
         return false;
