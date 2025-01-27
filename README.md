@@ -23,7 +23,7 @@ npm install form-validatio-lib
 ## Basic Usage
 
 ```javascript
-import { validateEmail, validatePassword, validatePhoneNumber } from 'form-validation-lib-js';
+import { validateEmail, validatePassword, validatePhone, validatePhone_IN } from 'form-validation-lib-js';
 
 // Email validation
 const isValidEmail = validateEmail('user@example.com'); // true
