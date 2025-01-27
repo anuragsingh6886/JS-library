@@ -3,4 +3,8 @@
  * @param {string} phoneNumber - The phone number string to validate
  * @returns {boolean} True if the phone number is valid, false otherwise
  */
-export declare function validatePhoneNumber(phoneNumber: string): boolean;
+export declare function validatePhone(phoneNumber: string): boolean;
+export declare function validatePhone_US(phoneNumber: string): boolean;
+export declare function validatePhone_IN(phoneNumber: string): boolean;
+export declare function validatePhone_UK(phoneNumber: string): boolean;
+export declare function validatePhone_AU(phoneNumber: string): boolean;

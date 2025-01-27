@@ -32,7 +32,8 @@ const isValidEmail = validateEmail('user@example.com'); // true
 const isValidPassword = validatePassword('StrongPass1!'); // true
 
 // Phone number validation
-const isValidPhone = validatePhoneNumber('+1234567890'); // true
+const isValidPhone = validatePhone('+1234567890'); // true
+const isValdPhone_IN = validatePhone_IN('+919876543210'); // true
 ```
 
 ## React Integration:
@@ -127,15 +128,16 @@ validator.addAsyncValidator('uniqueEmail', async (email: string) => {
 ```
 
 ## Available Validators:
- - validateEmail(email: string): boolean
- - validatePassword(password: string): boolean
- - validatePhoneNumber(phone: string): boolean
- - validateDate(date: string): boolean
- - validateNumber(value: string, options?: {min?: number, max?: number}): boolean
- - validateFile(file: File, options?: FileValidationOptions): boolean
- - validateURL(url: string): boolean
- - validateIPAddress(ip: string): boolean
- - validateCreditCard(number: string): boolean
+ - `validateEmail`(email: string): boolean
+ - `validatePassword`(password: string): boolean
+ - `validatePhone`(phone: string): boolean
+ - `validatePhone_AU`, `validatePhone_IN`, `validatePhone_UK`, `validatePhone_US`(phone: string): boolean
+ - `validateDate`(date: string): boolean
+ - `validateNumber`(value: string, options?: {min?: number, max?: number}): boolean
+ - `validateFile`(file: File, options?: FileValidationOptions): boolean
+ - `validateURL`(url: string): boolean
+ - `validateIPAddress`(ip: string): boolean
+ - `validateCreditCard`(number: string): boolean
 
 ## TypeScript Support:
 

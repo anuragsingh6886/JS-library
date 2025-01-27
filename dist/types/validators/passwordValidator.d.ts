@@ -4,3 +4,4 @@
  * @returns {boolean} True if the password is valid, false otherwise
  */
 export declare function validatePassword(password: string): boolean;
+export declare function validatePasswordLength(password: string, length: number): boolean;

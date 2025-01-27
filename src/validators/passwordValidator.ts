@@ -8,3 +8,8 @@ export function validatePassword(password: string): boolean {
     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
 }
+
+export function validatePasswordLength(password: string, length: number): boolean {
+    if (!password || typeof password !== 'string') return false;
+    return password.length >= length;
+}
