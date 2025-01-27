@@ -134,7 +134,6 @@ validator.addAsyncValidator('uniqueEmail', async (email: string) => {
  - `validatePhone_AU`, `validatePhone_IN`, `validatePhone_UK`, `validatePhone_US`(phone: string): boolean
  - `validateDate`(date: string): boolean
  - `validateNumber`(value: string, options?: {min?: number, max?: number}): boolean
- - `validateFile`(file: File, options?: FileValidationOptions): boolean
  - `validateURL`(url: string): boolean
  - `validateIPAddress`(ip: string): boolean
  - `validateCreditCard`(number: string): boolean

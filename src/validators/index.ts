@@ -7,4 +7,3 @@ export * from './creditCardValidator.js';
 export * from './usernameValidator.js';
 export * from './ipAddressValidator.js';
 export * from './validateNumber.js';
-export * from './validateFile.js';
