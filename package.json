@@ -1,6 +1,6 @@
 {
   "name": "form-validation-lib-js",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "type": "module",
   "description": "A comprehensive JavaScript form validation library",
   "main": "./dist/cjs/index.js",

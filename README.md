@@ -1,6 +1,6 @@
-# Form Validation Library
+# Form-Validation-Library JS/TS
 
-- A comprehensive TypeScript/JavaScript form validation library.
+ - 🎉 A comprehensive TypeScript/JavaScript form validation library.
 
 [![npm version](https://badge.fury.io/js/form-validation-lib-js.svg)](https://badge.fury.io/js/form-validation-lib-js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -9,7 +9,7 @@
 ## Quick Start
 
 ```bash
-npm install form-validatio-lib
+npm install form-validation-lib-js
 
 ```
 
@@ -23,7 +23,7 @@ npm install form-validatio-lib
 ## Basic Usage
 
 ```javascript
-import { validateEmail, validatePassword, validatePhone, validatePhone_IN } from 'form-validation-lib-js';
+import { validateEmail, validatePassword, validatePhone_IN } from 'form-validation-lib-js';
 
 // Email validation
 const isValidEmail = validateEmail('user@example.com'); // true
@@ -31,8 +31,7 @@ const isValidEmail = validateEmail('user@example.com'); // true
 // Password validation
 const isValidPassword = validatePassword('StrongPass1!'); // true
 
-// Phone number validation
-const isValidPhone = validatePhone('+1234567890'); // true
+// Phone Number validation
 const isValdPhone_IN = validatePhone_IN('+919876543210'); // true
 ```
 
@@ -41,11 +40,10 @@ const isValdPhone_IN = validatePhone_IN('+919876543210'); // true
 import React, { useState } from 'react';
 import { FormValidator } from 'form-validation-lib-js';
 
-const SignupForm = () => {
+const SignInForm = () => {
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    phone: ''
+    password: ''
   });
   const [errors, setErrors] = useState({});
 
@@ -56,8 +54,7 @@ const SignupForm = () => {
 
     const validationSchema = {
       email: [{ type: 'email', message: 'Invalid email' }],
-      password: [{ type: 'password', message: 'Weak password' }],
-      phone: [{ type: 'phone', message: 'Invalid phone number' }]
+      password: [{ type: 'password', message: 'Weak password' }]
     };
 
     const result = await validator.validateForm(formData, validationSchema);
@@ -68,7 +65,6 @@ const SignupForm = () => {
       }), {}));
       return;
     }
-
     // Process form data
   };
 
@@ -78,7 +74,7 @@ const SignupForm = () => {
         <input
           type="email"
           value={formData.email}
-          onChange={(e) => setFormData({...formData, email: e.target.value})}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         />
         {errors.email && <span>{errors.email}</span>}
       </div>
@@ -87,26 +83,16 @@ const SignupForm = () => {
         <input
           type="password"
           value={formData.password}
-          onChange={(e) => setFormData({...formData, password: e.target.value})}
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         />
         {errors.password && <span>{errors.password}</span>}
       </div>
-
-      <div>
-        <input
-          type="text"
-          value={formData.phone}
-          onChange={(e) => setFormData({...formData, phone: e.target.value})}
-        />
-        {errors.phone && <span>{errors.phone}</span>}
-      </div>
-
-      <button type="submit">Sign Up</button>
+      <button type="submit">Sign In</button>
     </form>
   );
 };
 
-export default SignupForm;
+export default SignInForm;
 ```
 
 ## Custom Validators
@@ -149,11 +135,9 @@ const schema: ValidationSchema = {
 };
 ```
 
-## Contributing
-Pull requests are welcome! See ([CONTRIBUTING.md](https://github.com/anuragsingh6886/form-validatio-lib/blob/main/CONTRIBUTING.md)) for guidelines.
-
-## Author:
-- Anurag Singh ([@anuragsingh6886](https://www.linkedin.com/in/anuragsingh6886/))
+## Contribute
+ - Show your ❤️ and support by giving a ⭐
+ - Pull requests are welcome! See ([CONTRIBUTING.md](https://github.com/anuragsingh6886/form-validatio-lib/blob/main/CONTRIBUTING.md)) for guidelines.
 
 ## License:
-MIT License - see the ([LICENSE](https://github.com/anuragsingh6886/form-validatio-lib/blob/main/LICENSE)) file for details
+MIT License - ([Anurag Singh](https://x.com/anurags_me)), see the ([LICENSE](https://github.com/anuragsingh6886/form-validatio-lib/blob/main/LICENSE)) file for details
